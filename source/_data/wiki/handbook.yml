@@ -1,8 +1,0 @@
-name: 使用手册
-route:
-  path: /wiki/handbook/
-navigation:
-  tree:
-    - index
-    - formula
-    - diagram
