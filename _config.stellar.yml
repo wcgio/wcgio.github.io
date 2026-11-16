@@ -1,0 +1,113 @@
+# 字体与正文
+appearance:
+  typography:
+    font_family:
+      body: 'SimSun, "宋体", "Songti SC", serif'
+      code: 'Menlo, Consolas, monospace'
+    font_size:
+      root: 16px
+      inline_code: 85%
+      code_block: 0.8125rem
+    content_align: left
+
+# Stellar 2.x site overrides
+article:
+  listing:
+    card_layout: classic
+
+# Mermaid 图表与阅读增强
+features:
+  diagrams:
+    provider: mermaid
+    mermaid:
+      theme: neutral
+  card_hover:
+    spotlight: true
+    tilt: true
+  reveal:
+    enabled: true
+    duration: 800
+    interval: 200
+    distance: 8
+    blur: 4
+  lazy_loading:
+    transition: fade
+    auto_aspect_ratio: true
+
+# 加载自定义css
+inject:
+  head_end: '<link rel="stylesheet" href="/assets/custom.css">'
+
+# 站内搜索
+search:
+  provider: local
+  local:
+    scope: all
+    include_content: true
+    cache_ttl_seconds: 86400
+
+
+# 评论
+comments:
+  provider: waline
+  title: 俺有话要说
+  waline:
+    serverURL: 'https://talk.320360.xyz'
+    path: window.location.pathname
+    meta: ['nick', 'mail', 'link']
+    requiredMeta: ['nick']
+    lang: 'zh-CN'
+    emoji: ['https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo']
+    dark: 'html[data-user-color-scheme="dark"]'
+    wordLimit: 0
+    pageSize: 10
+    commentCount: true
+    pageview: true
+
+
+# 导航菜单
+topbar:
+  enabled: true
+  menu:
+    - id: home
+      title: 首页
+      url: /
+    - id: wiki
+      title: 文档
+      url: /wiki/handbook/
+    - id: archives
+      title: 归档
+      url: /archives/
+leftbar:
+  menu:
+    - id: post
+      title: 博客
+      icon: default:documents
+      url: /
+    - id: wiki
+      title: 文档
+      icon: default:documents
+      url: /wiki/handbook/
+    - id: archives
+      title: 归档
+      icon: default:calendar
+      url: /archives/
+# SEO
+canonical:
+  host: blog.wcg.qzz.io
+  allowed_hosts:
+    - blog.wcg.qzz.io
+open_graph:
+  enabled: true
+  twitter_id: null
+structured_data:
+  same_as: []
+
+profiles:
+  home:
+    rightbar:
+      widgets: [memos]
+  post:
+    rightbar:
+      widgets: [toc]
+

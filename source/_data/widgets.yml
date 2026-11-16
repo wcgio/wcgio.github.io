@@ -1,0 +1,6 @@
+memos:
+  layout: timeline
+  title: 近期动态
+  type: memos
+  api: https://memos.320360.xyz/compatible-memos-feed
+  hide: user,footer
