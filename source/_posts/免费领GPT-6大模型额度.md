@@ -22,7 +22,7 @@ tags:
 
 1. 点击[注册账号](https://xingchiapi.com/register?aff=7MXSNY9WXX6H)，注册成功后，进系统自动领取$1000额度；
 2. 获取兑换码
-   1. 如果有Linux.do论坛（邀请注册机制）的账号，可以在2025-11-15~2026-12-06时间段内到[LINUX DO CDK](https://cdk.linux.do/receive/8fea7bae-90c6-47dc-92a5-314318a35f4e)，每天 14:00-21:10 领取 $1000额度的兑换码；
+   1. 如果有Linux.do论坛（邀请注册机制）的账号，可以在2025-11-15\\x7e2026-12-06时间段内到[LINUX DO CDK](https://cdk.linux.do/receive/8fea7bae-90c6-47dc-92a5-314318a35f4e)，每天 14:00-21:10 领取 $1000额度的兑换码；
 
 ![image.png](/images/image_1794830984976.png)
 
@@ -38,7 +38,11 @@ tags:
 
 ![image.png](/images/image_1794831226435.png)
 
-## 二、使用限制
+## 二、使用方式
+
+可通过 magpie 这一开源工具来使用星驰公益站点提供的AI 大模型服务，具体使用方式参考 {% post_link '使用Magpie接管AI订阅' '使用 Magpie 接管 AI 订阅' %}
+
+## 三、使用限制
 
 目前仅限于在以下多种编程客户端里使用，脚本、SDK直连、第三方聊天客户端下会报403异常！
 

@@ -53,7 +53,13 @@
       "kind": "Post",
       "source": "_posts/免费领GPT-6大模型额度.md",
       "documentId": "08e04e76-ffb5-4a7f-9866-d15604df9ce1",
-      "fingerprint": "2b3adcc57e57201baab5d9317b954a606fa72e16bc6611f9c6070265ea05a725"
+      "fingerprint": "ced53bcaa8f5b592bd68d95cd8e4f7868e6cffe1cb4c94f5fd7d1203e8f57988"
+    },
+    {
+      "kind": "Post",
+      "source": "_posts/使用Magpie接管AI订阅.md",
+      "documentId": "20730e2e-ee24-4943-a2eb-a7ff4b09339a",
+      "fingerprint": "a37b0d686184a2b9f247e405e85478c5e7e4cc9abf07720c5db474bc7ccfeb3b"
     }
   ]
 }
