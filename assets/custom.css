@@ -16,6 +16,13 @@
   aspect-ratio: 1;
 }
 
+/* 竖屏手机截图专用比例：{% gallery size:nine aspect_ratio:phone %}
+   手机截图通常是 1080×2340（≈9:19.5），用 square 会把主要内容裁掉，
+   用 phone 就按手机屏幕比例显示。 */
+.tag-plugin.gallery.grid-box[size="nine"][aspect_ratio="phone"] .grid-cell {
+  aspect-ratio: 9 / 19.5;
+}
+
 /* 手机端：保持 3 列，只缩小间距，避免格子过小后误触 */
 @media (max-width: 640px) {
   .tag-plugin.gallery.grid-box[size="nine"] {
