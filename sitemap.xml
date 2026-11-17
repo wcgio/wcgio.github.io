@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.wcg.qzz.io/2026/11/17/%E4%BD%BF%E7%94%A8Magpie%E6%8E%A5%E7%AE%A1AI%E8%AE%A2%E9%98%85/</loc>
+    
+    <lastmod>2026-11-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.wcg.qzz.io/2026/11/17/%E5%85%8D%E8%B4%B9%E9%A2%86GPT-6%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%A2%9D%E5%BA%A6/</loc>
     
     <lastmod>2026-11-17</lastmod>
@@ -28,15 +37,6 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://blog.wcg.qzz.io/2026/11/16/%E4%BD%BF%E7%94%A8Magpie%E6%8E%A5%E7%AE%A1AI%E8%AE%A2%E9%98%85/</loc>
-    
-    <lastmod>2026-11-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>https://blog.wcg.qzz.io/</loc>
@@ -45,6 +45,13 @@
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>https://blog.wcg.qzz.io/tags/magpie/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
   <url>
     <loc>https://blog.wcg.qzz.io/tags/AI/</loc>
@@ -60,24 +67,17 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://blog.wcg.qzz.io/tags/%E8%96%85%E7%BE%8A%E6%AF%9B/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
     <loc>https://blog.wcg.qzz.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
-    <lastmod>2026-11-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.wcg.qzz.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2026-11-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.wcg.qzz.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
