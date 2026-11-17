@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.wcg.qzz.io/wiki/handbook/</loc>
+    <loc>https://blog.wcg.qzz.io/2026/11/17/%E5%85%8D%E8%B4%B9%E9%A2%86GPT-6%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%A2%9D%E5%BA%A6/</loc>
     
     <lastmod>2026-11-17</lastmod>
     
@@ -20,9 +20,9 @@
   </url>
   
   <url>
-    <loc>https://blog.wcg.qzz.io/2026/11/16/%E5%85%8D%E8%B4%B9%E9%A2%86GPT-6%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%A2%9D%E5%BA%A6/</loc>
+    <loc>https://blog.wcg.qzz.io/wiki/handbook/</loc>
     
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -70,14 +70,14 @@
   </url>
   
   <url>
-    <loc>https://blog.wcg.qzz.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</loc>
+    <loc>https://blog.wcg.qzz.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.wcg.qzz.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/</loc>
+    <loc>https://blog.wcg.qzz.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
