@@ -1,33 +1,57 @@
 /* 站内自定义样式
    _config.stellar.yml 的 inject.head_end 引用了本文件。 */
 
-/* ===== 九宫格图片：{% gallery size:nine aspect_ratio:square %} =====
-   Stellar 的 gallery 默认按 minmax 自适应列数（桌面常见 4 列），
-   这里用 size:nine 这个自定义尺寸名把列数锁死为 3 列，形成 3×3 九宫格。
-   图片本身仍带 data-fancybox="gallery-N"，点击可放大并左右翻页。 */
+/* ===== 九宫格缩略图：{% gallery size:nine aspect_ratio:square %} =====
+   固定 3 列，格子随容器宽度缩放，单格最高 240px。
+   图片脱离文档流，避免原图尺寸或懒加载后的固有高度撑开网格。
+   保留 data-fancybox 分组，点击仍可查看完整大图并左右翻页。 */
 .tag-plugin.gallery.grid-box[size="nine"] {
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 8px;
+  --gallery-max-height: 240px;
+  --gallery-gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-gap: var(--gallery-gap);
 }
 
-/* 每格强制正方形，图片 object-fit: cover 裁切填满（想保留原始比例就删掉这段，
-   改用 aspect_ratio:original） */
 .tag-plugin.gallery.grid-box[size="nine"] .grid-cell {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-height: var(--gallery-max-height);
   aspect-ratio: 1;
+  overflow: hidden;
 }
 
-/* 竖屏手机截图专用比例：{% gallery size:nine aspect_ratio:phone %}
-   手机截图通常是 1080×2340（≈9:19.5），用 square 会把主要内容裁掉，
-   用 phone 就按手机屏幕比例显示。 */
+.tag-plugin.gallery.grid-box[size="nine"] .grid-cell img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 手机截图按「单格高度 × 宽高比 × 3 列 + 两段间距」限制整组宽度。
+   格子与图片比例一致，避免高度封顶后留下宽大的空白背景。 */
+.tag-plugin.gallery.grid-box[size="nine"][aspect_ratio="phone"] {
+  width: 100%;
+  max-width: calc(var(--gallery-max-height) * 27 / 19.5 + var(--gallery-gap) * 2);
+  margin-inline: auto;
+}
+
 .tag-plugin.gallery.grid-box[size="nine"][aspect_ratio="phone"] .grid-cell {
   aspect-ratio: 9 / 19.5;
+}
+
+.tag-plugin.gallery.grid-box[size="nine"][aspect_ratio="phone"] .grid-cell img {
+  object-fit: contain;
 }
 
 /* 手机端：保持 3 列，只缩小间距，避免格子过小后误触 */
 @media (max-width: 640px) {
   .tag-plugin.gallery.grid-box[size="nine"] {
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 4px;
+    --gallery-gap: 4px;
   }
   .tag-plugin.gallery.grid-box[size="nine"] .grid-cell,
   .tag-plugin.gallery.grid-box[size="nine"] img {
@@ -43,8 +67,8 @@
 }
 */
 
-/* ===== 文章详情页顶部：复用文章底部标签样式 + 发布于 / 更新于 =====
-   标签链接沿用主题的 .article-tags a.tag / tag-chip()，这里只调整容器位置与间距。 */
+/* ===== 文章详情页顶部：轻量紫色标签 + 发布于 / 更新于 =====
+   保留主题标签链接语义，顶部外观与文末标签独立。 */
 .article.banner .content .top .article-tags.banner-tags {
   justify-content: flex-start;
   align-items: center;
@@ -57,7 +81,7 @@
 
 .article.banner .content .top .article-tags.banner-tags .banner-tags-label {
   padding: 2px 0;
-  margin-right: 4px;
+  margin-right: 6px;
   color: var(--text-banner-theme, var(--text-banner));
   white-space: nowrap;
 }
@@ -89,7 +113,7 @@
   content: '|';
 }
 
-/* 手机端：主题标签胶囊保留原样，容器允许换行。 */
+/* 手机端：标签行允许自然换行。 */
 @media (max-width: 640px) {
   .article.banner .content .top .article-tags.banner-tags {
     flex-wrap: wrap;
@@ -101,10 +125,6 @@
    有封面图（.bg 存在）时保持主题默认的整图横幅效果；不想要紧凑排版就删掉这一段。 */
 .article.banner .content:not(:has(img.bg)) {
   min-height: 0;
-}
-
-.article.banner .content:not(:has(img.bg)) .bottom {
-  margin-top: 0.75rem;
 }
 
 /* 紧凑横幅里标题与标签行的垂直留白（仅无封面图的文章） */
@@ -121,3 +141,232 @@
   margin: 0.25rem 0 0.5rem;
 }
 
+/* ===== 首页右侧：分类列表与标签云 ===== */
+#rightbar-region .category-index-widget .widget-body {
+  padding: 8px;
+  border: 1px solid var(--block-border);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+#rightbar-region .category-index-list,
+#rightbar-region .category-index-list-child {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#rightbar-region .category-index-list-child {
+  padding-left: 16px;
+}
+
+#rightbar-region .category-index-list-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  color: var(--text-p2);
+}
+
+#rightbar-region .category-index-list-link {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0 8px;
+  border-radius: 6px;
+  color: inherit;
+  overflow-wrap: anywhere;
+}
+
+#rightbar-region .category-index-list-link::before {
+  content: '';
+  flex: 0 0 16px;
+  height: 16px;
+  margin-right: 8px;
+  background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='black' stroke-width='1.5' d='M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+#rightbar-region .category-index-list-count {
+  padding-right: 8px;
+  font-size: 0.875rem;
+}
+
+#rightbar-region .category-index-list-count::before { content: '('; }
+#rightbar-region .category-index-list-count::after { content: ')'; }
+#rightbar-region .category-index-list-child { flex-basis: 100%; }
+
+#rightbar-region .category-index-list-link:hover {
+  background: var(--block);
+  color: var(--theme);
+}
+
+#rightbar-region .tagcloud .widget-body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  padding: 8px var(--gap-base);
+}
+
+#rightbar-region .tagcloud a.tag {
+  margin: 0;
+  padding: 2px 0;
+  color: var(--text-p2);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+#rightbar-region .tagcloud a.tag:hover {
+  color: var(--theme);
+}
+
+#rightbar-region :is(.category-index-list-link, .tagcloud a.tag):focus-visible {
+  outline: 2px solid var(--theme);
+  outline-offset: 2px;
+}
+
+/* ===== 参考文章页：紫色文字标签 ===== */
+:root {
+  --post-tag-color: #7543c8;
+  --post-tag-hover: #e4d5fc;
+  --blog-leftbar-gradient: linear-gradient(155deg, #c9eeff 0%, #d5f8ed 42%, #ffdfd3 76%, #fff0c8 100%);
+}
+
+.article.banner .content .top .article-tags.banner-tags {
+  gap: 2px 6px;
+}
+
+.article.banner .content .top .article-tags.banner-tags a.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  margin: 0;
+  padding: 1px 4px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--post-tag-background, #f0e8ff);
+  box-shadow: none;
+  color: var(--post-tag-color);
+  font-size: inherit;
+  line-height: 1.6;
+  opacity: 1;
+  text-decoration: none;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.article.banner .content .top .article-tags.banner-tags a.tag svg {
+  width: 0.85em;
+  height: 0.85em;
+  color: inherit;
+  opacity: 1;
+}
+
+.article.banner .content .top .article-tags.banner-tags a.tag:hover {
+  background: var(--post-tag-hover);
+}
+
+/* 封面图上保留可读的浅色底。 */
+.article.banner:has(img.bg) .content .banner-tags a.tag {
+  background: #f4edff;
+  color: #6330b4;
+}
+
+/* ===== 左栏：天蓝 → 薄荷 → 暖桃 → 奶油黄 =====
+   着色放在主题的 surface 层，兼容侧栏折叠与手机抽屉。 */
+#leftbar-region > .site-region__surface {
+  background: var(--blog-leftbar-gradient);
+}
+
+#leftbar-region .site-region__decoration {
+  display: none;
+}
+
+#leftbar-region .search-trigger {
+  background: rgb(255 255 255 / 65%);
+}
+
+#leftbar-region .menu .ui-collection__item.is-active {
+  background: rgb(255 255 255 / 82%);
+}
+
+#leftbar-region .widget-header {
+  color: var(--text-p2);
+}
+
+/* ===== 右栏：目录在上，操作紧接在目录下 =====
+   沿用主题的吸顶和目录独立滚动，让长目录也为操作区留出空间。 */
+#rightbar-region .widgets .widget-wrapper.toc {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+#rightbar-region .widget-wrapper.toc .toc a.toc-link {
+  color: var(--text-p2);
+  opacity: 1;
+}
+
+#rightbar-region .widget-wrapper.toc .toc .toc-text {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+#rightbar-region .widget-wrapper.toc .toc a.toc-link:is(:hover, .active) {
+  color: var(--theme);
+}
+
+#rightbar-region .widget-wrapper.toc .widget-footer {
+  flex: 0 0 auto;
+  margin-top: 12px;
+  padding-top: 8px;
+}
+
+#rightbar-region .widget-wrapper.toc .widget-footer a {
+  box-sizing: border-box;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+#rightbar-region .widget-wrapper.toc .widget-footer .ui-icon {
+  color: inherit;
+  opacity: 1;
+}
+
+.article.banner .banner-tags a.tag:focus-visible,
+#rightbar-region .widget-footer a:focus-visible {
+  outline: 2px solid var(--theme);
+  outline-offset: 2px;
+}
+
+:root[data-theme="dark"] {
+  --post-tag-color: #c7a4ff;
+  --post-tag-background: #30243f;
+  --post-tag-hover: #44305e;
+  --blog-leftbar-gradient: linear-gradient(155deg, #183b52 0%, #20483f 42%, #503a40 76%, #4b432b 100%);
+}
+
+:root[data-theme="dark"] #leftbar-region .search-trigger,
+:root[data-theme="dark"] #leftbar-region .menu .ui-collection__item.is-active {
+  background: rgb(255 255 255 / 10%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --post-tag-color: #c7a4ff;
+    --post-tag-background: #30243f;
+    --post-tag-hover: #44305e;
+    --blog-leftbar-gradient: linear-gradient(155deg, #183b52 0%, #20483f 42%, #503a40 76%, #4b432b 100%);
+  }
+
+  :root:not([data-theme]) #leftbar-region .search-trigger,
+  :root:not([data-theme]) #leftbar-region .menu .ui-collection__item.is-active {
+    background: rgb(255 255 255 / 10%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .article.banner .content .top .article-tags.banner-tags a.tag {
+    transition: none;
+  }
+}

@@ -2137,7 +2137,7 @@ html {
   height: 100%;
   width: 100%;
   overflow-y: scroll;
-  font-family: SimSun, "宋体", "Songti SC", serif;
+  font-family: "Times New Roman", SimSun, "宋体", "Songti SC", serif;
   font-size: var(--fs-root);
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -8486,7 +8486,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   appearance: none;
   width: 100%;
   box-sizing: border-box;
-  font-family: SimSun, "宋体", "Songti SC", serif;
+  font-family: "Times New Roman", SimSun, "宋体", "Songti SC", serif;
   font-size: calc(var(--fs-content-base) - 2px);
   padding: 12px 0;
   color: var(--text);
@@ -8579,7 +8579,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   margin: 0;
   padding: 0.75rem 1rem;
   border-radius: 12px;
-  font-family: SimSun, "宋体", "Songti SC", serif;
+  font-family: "Times New Roman", SimSun, "宋体", "Songti SC", serif;
   font-size: calc(var(--fs-content-base) - 2px);
   color: var(--text-p1);
 }
@@ -8686,7 +8686,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   min-width: 0;
   border-radius: 4px;
   color: var(--text-meta);
-  font-family: SimSun, "宋体", "Songti SC", serif;
+  font-family: "Times New Roman", SimSun, "宋体", "Songti SC", serif;
   font-size: calc(var(--fs-content-base) - 4px);
   font-weight: 600;
   line-height: 1;

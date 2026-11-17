@@ -129,7 +129,7 @@ body[data-page-layout='index_wiki'] {
 }
 .md-text .cmt-body.waline .wl-editor {
   font-size: var(--waline-font-size);
-  font-family: SimSun, "宋体", "Songti SC", serif;
+  font-family: "Times New Roman", SimSun, "宋体", "Songti SC", serif;
 }
 .md-text .cmt-body.waline .wl-content .wl-emoji,
 .md-text .cmt-body.waline .wl-content .vemoji {
