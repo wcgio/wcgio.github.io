@@ -42,3 +42,110 @@
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 */
+
+/* ===== 文章详情页顶部：标签行 + 发布于 / 更新于 =====
+   由 tools/theme-patch/layout/_partial/main/navbar/article_banner.ejs 生成的结构：
+   .banner-tags（标签： #a #b） / .post-dates（发布于：… | 更新于：…） */
+.article.banner .content .top .banner-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 8px;
+  row-gap: 2px;
+  width: 100%;
+  margin-top: 2px;
+}
+
+.article.banner .content .top .banner-tags .banner-tags-label {
+  padding: 2px 0;
+  opacity: 0.85;
+}
+
+.article.banner .content .top .banner-tags a.banner-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: var(--link, var(--theme));
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.article.banner .content .top .banner-tags a.banner-tag svg {
+  width: 0.9em;
+  height: 0.9em;
+}
+
+.article.banner .content .top .banner-tags a.banner-tag:hover {
+  background: var(--button-hover-bg);
+}
+
+/* 发布于 / 更新于：始终可见（主题默认把「更新于」做成 hover 才出现），
+   并且固定显示绝对时间，不受前端 relativeDate 影响。 */
+.article.banner .content .top .post-dates {
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.article.banner .content .top .post-dates .text {
+  padding: 2px 0;
+  visibility: visible;
+}
+
+/* 「发布于：」与时间之间留一点空，跟设计稿一致 */
+.article.banner .content .top .post-dates time {
+  margin-left: 4px;
+}
+
+.article.banner .content .top .post-dates .sep {
+  margin: 0 8px;
+  opacity: 0.5;
+}
+
+.article.banner .content .top .post-dates .sep:before {
+  content: '|';
+}
+
+/* 手机端：标签多时缩小间距，保持一行内可读 */
+@media (max-width: 640px) {
+  .article.banner .content .top .banner-tags {
+    column-gap: 4px;
+  }
+  .article.banner .content .top .banner-tags a.banner-tag {
+    padding: 2px 2px;
+  }
+}
+
+/* 无封面图的文章：横幅改为紧凑排版（对齐设计稿），标题紧跟「发布于 / 更新于」，
+   不再被 .article.banner .content 的 min-height: 200px + margin-top:auto 顶到底部。
+   有封面图（.bg 存在）时保持主题默认的整图横幅效果；不想要紧凑排版就删掉这一段。 */
+.article.banner .content:not(:has(img.bg)) {
+  min-height: 0;
+}
+
+.article.banner .content:not(:has(img.bg)) .bottom {
+  margin-top: 0.75rem;
+}
+
+/* 紧凑横幅里标题与标签行的垂直留白（仅无封面图的文章） */
+.article.banner .content:not(:has(img.bg)) .bottom,
+.article.banner .content:not(:has(img.bg)) .bottom.only-title {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* 标题内边距原本由 .site-shell .article.banner .content .bottom.only-title .title 给出，
+   这里用同样长的选择器链覆盖掉，否则标题会被撑出 12px 上下的空档。 */
+.site-shell .article.banner .content:not(:has(img.bg)) .bottom.only-title .title {
+  padding: 0.125rem 0;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.article.banner .content .top .banner-tags a.banner-tag .hash {
+  margin-right: 1px;
+  opacity: 0.9;
+  /* 正文字体是宋体，'#' 的字面留白偏大，这里单独换无衬线体贴近设计稿 */
+  font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
