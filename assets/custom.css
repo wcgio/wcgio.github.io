@@ -1,2 +1,37 @@
-/* 站内自定义样式（当前无覆盖规则，保留为占位文件）。
-   _config.stellar.yml 的 inject.head_end 引用了本文件，留空可避免该链接 404。 */
+/* 站内自定义样式
+   _config.stellar.yml 的 inject.head_end 引用了本文件。 */
+
+/* ===== 九宫格图片：{% gallery size:nine aspect_ratio:square %} =====
+   Stellar 的 gallery 默认按 minmax 自适应列数（桌面常见 4 列），
+   这里用 size:nine 这个自定义尺寸名把列数锁死为 3 列，形成 3×3 九宫格。
+   图片本身仍带 data-fancybox="gallery-N"，点击可放大并左右翻页。 */
+.tag-plugin.gallery.grid-box[size="nine"] {
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 8px;
+}
+
+/* 每格强制正方形，图片 object-fit: cover 裁切填满（想保留原始比例就删掉这段，
+   改用 aspect_ratio:original） */
+.tag-plugin.gallery.grid-box[size="nine"] .grid-cell {
+  aspect-ratio: 1;
+}
+
+/* 手机端：保持 3 列，只缩小间距，避免格子过小后误触 */
+@media (max-width: 640px) {
+  .tag-plugin.gallery.grid-box[size="nine"] {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 4px;
+  }
+  .tag-plugin.gallery.grid-box[size="nine"] .grid-cell,
+  .tag-plugin.gallery.grid-box[size="nine"] img {
+    border-radius: 4px;
+  }
+}
+
+/* 可选：让九宫格的说明文字常显（默认是 hover 才显示）。
+   不需要就保持注释。
+.tag-plugin.gallery.grid-box[size="nine"] .image-caption {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+*/
