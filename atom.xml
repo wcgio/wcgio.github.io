@@ -5,7 +5,7 @@
   <link rel="alternate" href="https://blog.wcg.qzz.io/" />
   <link rel="self" href="https://blog.wcg.qzz.io/atom.xml" />
   <id>https://blog.wcg.qzz.io/</id>
-  <updated>2026-11-17T08:34:42.000Z</updated>
+  <updated>2026-11-17T12:58:50.621Z</updated>
   <author><name>静海潜蛟</name></author>
   <generator uri="https://hexo.io/">Hexo</generator>
   <entry>
@@ -13,7 +13,7 @@
     <link rel="alternate" href="https://blog.wcg.qzz.io/2026/11/17/%E5%A4%9A%E7%9C%8B%E9%98%85%E8%AF%BB8.4.26%E5%8F%AF%E5%90%8C%E6%AD%A5%E3%80%81%E5%8E%BB%E5%B9%BF%E5%91%8A%E3%80%81%E5%8E%BB%E4%B9%A6%E5%9F%8E%E3%80%81%E5%85%8D%E6%9B%B4%E6%96%B0/" />
     <id>https://blog.wcg.qzz.io/2026/11/17/%E5%A4%9A%E7%9C%8B%E9%98%85%E8%AF%BB8.4.26%E5%8F%AF%E5%90%8C%E6%AD%A5%E3%80%81%E5%8E%BB%E5%B9%BF%E5%91%8A%E3%80%81%E5%8E%BB%E4%B9%A6%E5%9F%8E%E3%80%81%E5%85%8D%E6%9B%B4%E6%96%B0/</id>
     <published>2026-11-17T08:34:42.000Z</published>
-    <updated>2026-11-17T08:34:42.000Z</updated>
+    <updated>2026-11-17T12:58:50.621Z</updated>
     <author><name>静海潜蛟</name></author>
     <category term="资源分享" />
     <summary type="html">基于多看阅读 8.4.26 官方版修改：去开屏与阅读广告、隐藏书城入口、保留小米账号登录与云同步、关闭自动更新，附修改清单与安装说明。</summary>
@@ -46,7 +46,7 @@
     <link rel="alternate" href="https://blog.wcg.qzz.io/2026/11/17/%E4%BD%BF%E7%94%A8Magpie%E6%8E%A5%E7%AE%A1AI%E8%AE%A2%E9%98%85/" />
     <id>https://blog.wcg.qzz.io/2026/11/17/%E4%BD%BF%E7%94%A8Magpie%E6%8E%A5%E7%AE%A1AI%E8%AE%A2%E9%98%85/</id>
     <published>2026-11-17T07:47:49.000Z</published>
-    <updated>2026-11-17T07:47:49.000Z</updated>
+    <updated>2026-11-17T12:57:35.184Z</updated>
     <author><name>静海潜蛟</name></author>
     <category term="人工智能" />
     <summary type="html">Magpie 可以把 ChatGPT、Claude、Gemini、DeepSeek 等订阅接入 Cursor、DeepSeek Harness 等编程客户端，本文记录添加供应商、启用服务与客户端配置的完整步骤。</summary>
