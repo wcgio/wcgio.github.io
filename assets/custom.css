@@ -43,44 +43,25 @@
 }
 */
 
-/* ===== 文章详情页顶部：标签行 + 发布于 / 更新于 =====
-   由 tools/theme-patch/layout/_partial/main/navbar/article_banner.ejs 生成的结构：
-   .banner-tags（标签： #a #b） / .post-dates（发布于：… | 更新于：…） */
-.article.banner .content .top .banner-tags {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  column-gap: 8px;
-  row-gap: 2px;
-  width: 100%;
-  margin-top: 2px;
-}
-
-.article.banner .content .top .banner-tags .banner-tags-label {
-  padding: 2px 0;
-  opacity: 0.85;
-}
-
-.article.banner .content .top .banner-tags a.banner-tag {
-  display: inline-flex;
+/* ===== 文章详情页顶部：复用文章底部标签样式 + 发布于 / 更新于 =====
+   标签链接沿用主题的 .article-tags a.tag / tag-chip()，这里只调整容器位置与间距。 */
+.article.banner .content .top .article-tags.banner-tags {
+  justify-content: flex-start;
   align-items: center;
-  gap: 1px;
-  padding: 2px 4px;
-  border-radius: 2px;
-  color: var(--link, var(--theme));
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
+  width: 100%;
+  margin: 2px 0;
+  padding: 0;
+  column-gap: 0;
+  line-height: 1.6;
 }
 
-.article.banner .content .top .banner-tags a.banner-tag svg {
-  width: 0.9em;
-  height: 0.9em;
+.article.banner .content .top .article-tags.banner-tags .banner-tags-label {
+  padding: 2px 0;
+  margin-right: 4px;
+  color: var(--text-banner-theme, var(--text-banner));
+  white-space: nowrap;
 }
 
-.article.banner .content .top .banner-tags a.banner-tag:hover {
-  background: var(--button-hover-bg);
-}
 
 /* 发布于 / 更新于：始终可见（主题默认把「更新于」做成 hover 才出现），
    并且固定显示绝对时间，不受前端 relativeDate 影响。 */
@@ -108,13 +89,10 @@
   content: '|';
 }
 
-/* 手机端：标签多时缩小间距，保持一行内可读 */
+/* 手机端：主题标签胶囊保留原样，容器允许换行。 */
 @media (max-width: 640px) {
-  .article.banner .content .top .banner-tags {
-    column-gap: 4px;
-  }
-  .article.banner .content .top .banner-tags a.banner-tag {
-    padding: 2px 2px;
+  .article.banner .content .top .article-tags.banner-tags {
+    flex-wrap: wrap;
   }
 }
 
@@ -143,9 +121,3 @@
   margin: 0.25rem 0 0.5rem;
 }
 
-.article.banner .content .top .banner-tags a.banner-tag .hash {
-  margin-right: 1px;
-  opacity: 0.9;
-  /* 正文字体是宋体，'#' 的字面留白偏大，这里单独换无衬线体贴近设计稿 */
-  font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
-}
