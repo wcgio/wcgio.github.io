@@ -1,0 +1,7 @@
+/* Giscus 在独立 iframe 中，保留默认明暗配色并单独设置字体。 */
+@import url("https://giscus.app/themes/preferred_color_scheme.css");
+
+body,
+body :is(code, kbd, pre, samp, .gsc-is-fixed-width, .blob-code-inner, .blob-num, .commit-tease-sha) {
+  font-family: "Times New Roman", SimSun, "Songti SC", "Source Han Serif SC", "Noto Serif SC", serif;
+}

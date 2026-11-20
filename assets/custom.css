@@ -61,15 +61,33 @@
   }
 }
 
+/* 文章配图靠左；不改封面、行内表情和图库内部的裁切方式。 */
+article.md-text.content img:not(.inline, .tag-plugin img),
+article.md-text.content .tag-plugin.image .image-bg,
+article.md-text.content .tag-plugin.image .image-bg img,
+article.md-text.content .tag-plugin.gallery.grid-box[size="nine"][aspect_ratio="phone"] {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+article.md-text.content .tag-plugin.image .image-bg {
+  align-items: flex-start;
+}
+
+article.md-text.content .tag-plugin.image > .image-meta {
+  justify-content: flex-start;
+}
+
 /* ==========================================================================
    二、文章详情页横幅
-   2.1 顶部标签行：轻量紫色文字标签
+   2.1 顶部标签行：轻量天青色标签
    2.2 发布于 / 更新于：常显 + 绝对时间
    2.3 无封面图时改为紧凑横幅
    ========================================================================== */
 :root {
-  --post-tag-color: #7543c8;
-  --post-tag-hover: #e4d5fc;
+  --post-tag-color: #007f82;
+  --post-tag-background: rgba(0, 206, 209, 0.12);
+  --post-tag-hover: rgba(0, 206, 209, 0.22);
 }
 
 .article.banner .content .top .article-tags.banner-tags {
@@ -92,16 +110,14 @@
 .article.banner .content .top .article-tags.banner-tags a.tag {
   display: inline-flex;
   align-items: center;
-  gap: 1px;
-  margin: 0;
-  padding: 1px 4px;
+  margin: 4px 0;
+  padding: 0 8px 0 0;
   border: 0;
   border-radius: 4px;
   background: var(--post-tag-background, #f0e8ff);
   box-shadow: none;
   color: var(--post-tag-color);
   font-size: inherit;
-  line-height: 1.6;
   opacity: 1;
   text-decoration: none;
   transition: color 180ms ease, background-color 180ms ease;
@@ -109,12 +125,23 @@
 
 .article.banner .content .top .article-tags.banner-tags a.tag svg {
   width: 0.85em;
-  height: 0.85em;
+  height: 0.5em;
   color: inherit;
   opacity: 1;
 }
 
 .article.banner .content .top .article-tags.banner-tags a.tag:hover {
+  background: var(--post-tag-hover);
+}
+
+.article-tags a.tag {
+  color: var(--post-tag-color);
+  background: var(--post-tag-background);
+}
+
+.article-tags a.tag:hover,
+.article-tags a.tag:focus-visible {
+  color: var(--post-tag-color);
   background: var(--post-tag-hover);
 }
 
@@ -161,7 +188,7 @@
 /* 标题内边距由主题更长的选择器链给出，这里用同样长度覆盖，避免 12px 空档 */
 .site-shell .article.banner .content:not(:has(img.bg)) .bottom.only-title .title {
   padding: 0.125rem 0;
-  margin: 0.25rem 0 0.5rem;
+  margin: 0.25rem 0 1rem;
 }
 
 @media (max-width: 640px) {
@@ -174,6 +201,11 @@
   .article.banner .content .top .article-tags.banner-tags a.tag {
     transition: none;
   }
+}
+
+/* 较新／较早文章：仅将标题链接从主题的五级标题字号降到正文字号。 */
+#read-next > .body > .item > a {
+  font-size: var(--fs-content-base);
 }
 
 /* ==========================================================================
@@ -241,10 +273,14 @@
   padding: 8px var(--gap-base);
 }
 
+:root {
+  --theme: #00CED1; /* 主题色：天青色 */
+}
+
+/* 标签云样式 */
 #rightbar-region .tagcloud a.tag {
   margin: 0;
   padding: 2px 0;
-  color: var(--text-p2);
   line-height: 1.6;
   overflow-wrap: anywhere;
 }
@@ -252,6 +288,74 @@
 #rightbar-region .tagcloud a.tag:hover {
   color: var(--theme);
 }
+
+/* 首页文章标题：双层青草绿水面波浪，hover 时错速流动。 */
+.post-list .post-card .post-title {
+  position: relative;
+  isolation: isolate;
+  text-decoration: none;
+}
+
+.post-list .post-card .post-title::before,
+.post-list .post-card .post-title::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+/* 主浪在底部保留连续浅天青色水面，波峰约达标题高度的一半。 */
+.post-list .post-card .post-title::before {
+  height: 0.5lh;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 16' preserveAspectRatio='none'%3E%3Cpath d='M0 6 C10 6 14 2 24 2 S40 6 48 6 S62 10 72 10 S86 6 96 6 L97 6 V17 H-1 V6Z' fill='%2300CED1' fill-opacity='.55'/%3E%3Cpath d='M-1 6 H0 C10 6 14 2 24 2 S40 6 48 6 S62 10 72 10 S86 6 96 6 H97' fill='none' stroke='%23E0FFFF' stroke-opacity='.78'/%3E%3C/svg%3E") repeat-x left bottom / 96px 100%,
+    linear-gradient(to top, rgba(0, 206, 209, .28), rgba(0, 206, 209, .18) 42%, transparent);
+}
+
+/* 第二层细浪稍低、稍快，随主浪往复滚动。 */
+.post-list .post-card .post-title::after {
+  height: 0.38lh;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 12' preserveAspectRatio='none'%3E%3Cpath d='M0 6 C8 6 11 3 19 3 S30 6 37 6 S46 8 53 8 S64 6 72 6 L73 6 V13 H-1 V6Z' fill='%2300CED1' fill-opacity='.62'/%3E%3Cpath d='M-1 6 H0 C8 6 11 3 19 3 S30 6 37 6 S46 8 53 8 S64 6 72 6 H73' fill='none' stroke='%23E0FFFF' stroke-opacity='.84' stroke-width='.8'/%3E%3C/svg%3E") repeat-x left bottom / 72px 100%;
+}
+
+.post-list .post-card:hover .post-title::before,
+.post-list .post-card:focus-visible .post-title::before,
+.post-list .post-card:focus-within .post-title::before {
+  opacity: 1;
+  animation: title-sea-swell 2.8s linear infinite;
+}
+
+.post-list .post-card:hover .post-title::after,
+.post-list .post-card:focus-visible .post-title::after,
+.post-list .post-card:focus-within .post-title::after {
+  opacity: .9;
+  animation: title-sea-ripple 1.9s linear infinite;
+}
+
+@keyframes title-sea-swell {
+  to { background-position-x: -96px; }
+}
+
+@keyframes title-sea-ripple {
+  to { background-position-x: -72px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post-list .post-card:hover .post-title::before,
+  .post-list .post-card:focus-visible .post-title::before,
+  .post-list .post-card:focus-within .post-title::before,
+  .post-list .post-card:hover .post-title::after,
+  .post-list .post-card:focus-visible .post-title::after,
+  .post-list .post-card:focus-within .post-title::after {
+    animation: none;
+  }
+}
+
 
 #rightbar-region :is(.category-index-list-link, .tagcloud a.tag):focus-visible {
   outline: 2px solid var(--theme);
@@ -353,8 +457,8 @@
 }
 
 #leftbar-region .site-region__footer-actions .social {
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
   justify-content: center;
   border-radius: 10px;
   /* 不要底色，只留图标轮廓；36px 仍是点击热区 */
@@ -413,15 +517,88 @@ html[data-leftbar-state="collapsed"] .site-shell:not([data-drawer="leftbar"])
    五、暗色主题的标签配色
    ========================================================================== */
 :root[data-theme="dark"] {
-  --post-tag-color: #c7a4ff;
-  --post-tag-background: #30243f;
-  --post-tag-hover: #44305e;
+  --post-tag-color: #55e4e6;
+  --post-tag-background: rgba(0, 206, 209, 0.18);
+  --post-tag-hover: rgba(0, 206, 209, 0.3);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --post-tag-color: #c7a4ff;
-    --post-tag-background: #30243f;
-    --post-tag-hover: #44305e;
+    --post-tag-color: #55e4e6;
+    --post-tag-background: rgba(0, 206, 209, 0.18);
+    --post-tag-hover: rgba(0, 206, 209, 0.3);
   }
+}
+
+/* ==========================================================================
+   六、界面字体、右栏标题与短页面页脚
+   ========================================================================== */
+
+/* 全站字体：西文 Times New Roman，中文优先使用系统宋体。 */
+:root {
+  --site-font-family: "Times New Roman", SimSun, "Songti SC", "Source Han Serif SC", "Noto Serif SC", serif;
+}
+
+button, input, select, textarea,
+.mermaid svg text, .mermaid svg foreignObject {
+  font-family: var(--site-font-family);
+}
+
+/* 主题默认将小组件标题设为 30% 不透明度，提高分类与标签云标题辨识度。 */
+#rightbar-region .widget-wrapper.category-index-widget .widget-header > .name,
+#rightbar-region .widget-wrapper.tagcloud .widget-header > .name {
+  color: var(--text-p1);
+  opacity: 0.85;
+}
+.widgets .widget-wrapper .widget-header {
+  padding-left: 4px!important;
+}
+
+/* 主栏在短页面仍占满可视高度，将版权页脚自然推至内容区下方。 */
+.site-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-main > .page-footer {
+  margin-top: auto;
+}
+
+#rightbar-region .category-index-list-link {
+  min-height: 32px;
+}
+
+/* 保留供顶部横幅使用的标签数据，只隐藏普通文章的文末标签行。 */
+body[data-page-layout="post"] .site-main > article.md-text.content + .article-tags {
+  display: none;
+}
+
+.article-share {
+  padding: 0;
+}
+
+.article-footer {
+  margin: 0;
+  padding: 10px 20px;
+}
+
+.article-footer .body p {
+  margin: 0;
+}
+
+.related-wrap {
+  margin-top: 2em;
+  margin-bottom: 0;
+}
+
+#comments {
+  margin: 2em 0;
+}
+
+.cap.theme {
+  color: unset;
+}
+
+.giscus-frame {
+  margin: 0!important;
 }

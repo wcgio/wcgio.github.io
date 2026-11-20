@@ -1029,7 +1029,7 @@ body[data-page-layout='index_wiki'] {
   }
 }
 pre {
-  font-family: Menlo, Consolas, monospace;
+  font-family: var(--site-font-family);
   font-size: 0.8125rem;
   tab-size: 4;
   -moz-tab-size: 4;
@@ -1754,7 +1754,7 @@ a.button.start.gradient {
 }
 code {
   -moz-osx-font-smoothing: auto;
-  font-family: Menlo, Consolas, monospace;
+  font-family: var(--site-font-family);
 }
 p>code:not([class]),
 li>code:not([class]) {
@@ -1769,7 +1769,7 @@ pre:not([class]):has(>code) {
   margin: var(--gap-p) 0;
   border-radius: 16px;
   overflow: hidden;
-  font-family: Menlo, Consolas, monospace;
+  font-family: var(--site-font-family);
   box-sizing: border-box;
 }
 @media screen and (min-width: 500px) {
@@ -1880,7 +1880,7 @@ pre:not([class]):has(>code) {
 }
 .md-text .gist .blob-code-inner {
   color: var(--text-p1);
-  font-family: Menlo, Consolas, monospace;
+  font-family: var(--site-font-family);
 }
 table:not([class]) {
   border-collapse: collapse;
@@ -2137,7 +2137,7 @@ html {
   height: 100%;
   width: 100%;
   overflow-y: scroll;
-  font-family: "Times New Roman", SimSun, "宋体", "Songti SC", serif;
+  font-family: var(--site-font-family);
   font-size: var(--fs-root);
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -2224,7 +2224,7 @@ input {
 }
 input.copy-area {
   display: block;
-  font-family: Menlo, Consolas, monospace;
+  font-family: var(--site-font-family);
   font-size: calc(var(--fs-content-base) - 3px);
   font-weight: 700;
   color: var(--text-p3);
@@ -3587,7 +3587,7 @@ button.ui-collection__item:not(.is-icon-only) {
   color: var(--text-banner-theme);
   background: color-mix(in srgb, var(--text-banner-theme, var(--background)) 20%, transparent);
   backdrop-filter: blur(12px) brightness(0.8);
-  font-family: Menlo, Consolas, monospace;
+  font-family: var(--site-font-family);
 }
 .cover-content.wiki-hero .wiki-cover-terminal .wiki-cover-terminal-toolbar {
   display: flex;
@@ -3922,7 +3922,7 @@ button.ui-collection__item:not(.is-icon-only) {
   border-right: 1px dashed var(--block-border);
 }
 .paginator-wrap .current {
-  font-family: Menlo, Consolas, monospace;
+  font-family: var(--site-font-family);
   background: var(--block);
 }
 .paginator-wrap .extend {
@@ -5468,7 +5468,7 @@ a.tag-plugin.button:hover {
   border-radius: 4px;
   background: hsla(var(--hue) var(--sat) var(--light) / 0.2);
   color: var(--theme);
-  font-family: Menlo, Consolas, monospace;
+  font-family: var(--site-font-family);
   font-size: calc(var(--fs-content-base) - 3px);
   font-weight: 700;
   flex-shrink: 0;
@@ -6500,7 +6500,7 @@ p>strong>span.tag-plugin.icon {
   border-bottom-width: 2px;
   background: var(--card);
   padding: 2px 4px 1px 4px;
-  font-family: Menlo, Consolas, monospace;
+  font-family: var(--site-font-family);
   font-weight: 700;
 }
 .md-text psw {
@@ -6532,7 +6532,7 @@ p>strong>span.tag-plugin.icon {
   color: var(--theme);
   line-height: 1;
   font-weight: 700;
-  font-family: Menlo, Consolas, monospace;
+  font-family: var(--site-font-family);
 }
 .md-text h1 sup,
 .md-text h2 sup,
@@ -8486,7 +8486,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   appearance: none;
   width: 100%;
   box-sizing: border-box;
-  font-family: "Times New Roman", SimSun, "宋体", "Songti SC", serif;
+  font-family: var(--site-font-family);
   font-size: calc(var(--fs-content-base) - 2px);
   padding: 12px 0;
   color: var(--text);
@@ -8579,7 +8579,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   margin: 0;
   padding: 0.75rem 1rem;
   border-radius: 12px;
-  font-family: "Times New Roman", SimSun, "宋体", "Songti SC", serif;
+  font-family: var(--site-font-family);
   font-size: calc(var(--fs-content-base) - 2px);
   color: var(--text-p1);
 }
@@ -8686,7 +8686,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   min-width: 0;
   border-radius: 4px;
   color: var(--text-meta);
-  font-family: "Times New Roman", SimSun, "宋体", "Songti SC", serif;
+  font-family: var(--site-font-family);
   font-size: calc(var(--fs-content-base) - 4px);
   font-weight: 600;
   line-height: 1;
@@ -10052,7 +10052,7 @@ html[data-leftbar-state='collapsed'] .site-shell:not([data-drawer='leftbar']) .s
 }
 .post-list #archive .archive-header {
   display: inline-block;
-  font-family: Menlo, Consolas, monospace;
+  font-family: var(--site-font-family);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 0.5em;
@@ -10083,7 +10083,7 @@ html[data-leftbar-state='collapsed'] .site-shell:not([data-drawer='leftbar']) .s
   border-bottom: 1px dashed var(--text-meta);
 }
 .post-list .archive-list a.post time {
-  font-family: Menlo, Consolas, monospace;
+  font-family: var(--site-font-family);
   margin-right: 1em;
   font-weight: 700;
   flex-shrink: 0;
@@ -10124,7 +10124,7 @@ html[data-leftbar-state='collapsed'] .site-shell:not([data-drawer='leftbar']) .s
 }
 .post-list #cats a.cat .badge {
   font-weight: 700;
-  font-family: Menlo, Consolas, monospace;
+  font-family: var(--site-font-family);
   opacity: 0.5;
   font-size: calc(var(--fs-content-base) - 4px);
 }
@@ -13149,68 +13149,6 @@ img.lazy.error {
 .md-text .folding[child=codeblock] .code .copy-btn {
   z-index: 1;
   margin-right: 1rem;
-}
-.card-hover.is-card-hover-ready {
-  position: relative;
-  --card-hover-mouse-x: 50%;
-  --card-hover-mouse-y: 50%;
-  --card-hover-rotate-x: 0deg;
-  --card-hover-rotate-y: 0deg;
-}
-.card-hover.is-card-hover-ready.card-hover--tilt {
-  transform: perspective(900px) translate3d(0, 0, 0) rotateX(var(--card-hover-rotate-x)) rotateY(var(--card-hover-rotate-y));
-  transform-origin: center;
-  transition: transform 0.25s ease-out, box-shadow 0.2s ease-out;
-}
-.card-hover.is-card-hover-ready.card-hover--tilt.is-card-hover-active {
-  transform: perspective(900px) translate3d(0, -2px, 0) rotateX(var(--card-hover-rotate-x)) rotateY(var(--card-hover-rotate-y));
-  transition-duration: 0.08s, 0.2s;
-  will-change: transform;
-}
-.card-hover__spotlight {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  border-radius: inherit;
-  corner-shape: inherit;
-  background: radial-gradient(circle at var(--card-hover-mouse-x) var(--card-hover-mouse-y), var(--card-hover-spotlight-color, rgba(255,255,255,0.25)), transparent 80%);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s ease-out;
-}
-.card-hover.is-card-hover-ready.card-hover--spotlight.is-card-hover-active > .card-hover__spotlight,
-.card-hover.is-card-hover-ready.card-hover--spotlight:focus-within > .card-hover__spotlight {
-  opacity: 0.6;
-}
-.post-list:not(.topic) .post-card-wrap {
-  box-shadow: none;
-}
-.post-list:not(.topic) .post-card.card-hover,
-.post-list.wiki .wiki-card.card-hover {
-  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
-}
-.post-list.wiki .post-card-wrap {
-  box-shadow: none;
-}
-.md-text .link-card.card-hover.card-hover--tilt.is-card-hover-ready,
-.tag-plugin.grid[bg='card'] > .cell.card-hover.card-hover--tilt.is-card-hover-ready {
-  transform: perspective(900px) translate3d(0, 0, 0) rotateX(var(--card-hover-rotate-x)) rotateY(var(--card-hover-rotate-y));
-}
-.md-text .link-card.card-hover.card-hover--tilt.is-card-hover-ready.is-card-hover-active,
-.tag-plugin.grid[bg='card'] > .cell.card-hover.card-hover--tilt.is-card-hover-ready.is-card-hover-active {
-  transform: perspective(900px) translate3d(0, -2px, 0) rotateX(var(--card-hover-rotate-x)) rotateY(var(--card-hover-rotate-y));
-}
-@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
-  .card-hover.is-card-hover-ready.card-hover--tilt,
-  .card-hover.is-card-hover-ready.card-hover--tilt.is-card-hover-active,
-  .md-text .link-card.card-hover.card-hover--tilt.is-card-hover-ready,
-  .tag-plugin.grid[bg='card'] > .cell.card-hover.card-hover--tilt.is-card-hover-ready {
-    transform: none;
-    transition: none;
-  }
-  .card-hover.is-card-hover-ready.card-hover--spotlight > .card-hover__spotlight {
-    opacity: 0;
-  }
 }
 .site-shell {
   --shell-gap: var(--gap-page);
