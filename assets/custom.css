@@ -362,7 +362,7 @@ article.md-text.content .tag-plugin.image > .image-meta {
   outline-offset: 2px;
 }
 
-/* 目录在上、操作紧接目录下 */
+/* 目录排在右栏最上方 */
 #rightbar-region .widgets .widget-wrapper.toc {
   margin-top: 0;
   padding-top: 0;
@@ -382,14 +382,55 @@ article.md-text.content .tag-plugin.image > .image-meta {
   color: var(--theme);
 }
 
-#rightbar-region .widget-wrapper.toc .widget-footer {
+#rightbar-region .widget-wrapper:is(.toc, .latest-posts) .widget-footer {
   flex: 0 0 auto;
   margin-top: 12px;
   padding-top: 8px;
 }
 
+#rightbar-region .latest-posts .widget-footer {
+  position: relative;
+  color: var(--text-p2);
+}
+
+#rightbar-region .latest-posts .widget-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0 var(--gap-base) auto;
+  height: 1px;
+  background: var(--block-border);
+}
+
+#rightbar-region .latest-posts .widget-footer a {
+  display: flex;
+  align-items: center;
+  color: inherit;
+  font-size: 14px;
+  padding: 8px var(--gap-base);
+  border-radius: var(--border-bar, 8px);
+}
+
+#rightbar-region .latest-posts .widget-footer a:hover {
+  color: var(--text);
+}
+
+#rightbar-region .latest-posts .widget-footer .ui-icon {
+  --ui-icon-size: 16px;
+  margin-right: 8px;
+}
+
+@media screen and (max-width: 1180px) {
+  #rightbar-region .latest-posts .widget-footer a {
+    background: var(--block);
+  }
+
+  #rightbar-region .latest-posts .widget-footer a + a {
+    margin-top: 4px;
+  }
+}
+
 /* 44px 保证触控与键盘的点击面积 */
-#rightbar-region .widget-wrapper.toc .widget-footer a {
+#rightbar-region .widget-wrapper:is(.toc, .latest-posts) .widget-footer a {
   box-sizing: border-box;
   min-height: 44px;
 }
@@ -544,6 +585,10 @@ button, input, select, textarea,
   font-family: var(--site-font-family);
 }
 
+.article-banner-wrap {
+  margin: 0 14px;
+}
+
 /* 主题默认将小组件标题设为 30% 不透明度，提高分类与标签云标题辨识度。 */
 #rightbar-region .widget-wrapper.category-index-widget .widget-header > .name,
 #rightbar-region .widget-wrapper.tagcloud .widget-header > .name {
@@ -552,6 +597,10 @@ button, input, select, textarea,
 }
 .widgets .widget-wrapper .widget-header {
   padding-left: 4px!important;
+}
+
+.site-region--rightbar .widgets .widget-instance + .widget-instance > .widget-wrapper {
+  margin-top: 0;
 }
 
 /* 主栏在短页面仍占满可视高度，将版权页脚自然推至内容区下方。 */
@@ -566,6 +615,10 @@ button, input, select, textarea,
 
 #rightbar-region .category-index-list-link {
   min-height: 32px;
+}
+
+.widget-instance--tagcloud {
+  margin: 16px 0;
 }
 
 /* 保留供顶部横幅使用的标签数据，只隐藏普通文章的文末标签行。 */
