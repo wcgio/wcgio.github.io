@@ -4,4 +4,4 @@ Disallow: /settings/
 Disallow: /content.json
 Disallow: /search.json
 
-Sitemap: https://blog.wcg.qzz.io/sitemap.xml
+Sitemap: https://blog.320360.xyz/sitemap.xml

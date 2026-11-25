@@ -2,16 +2,16 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>静海潜蛟的博客</title>
   <subtitle>静海潜蛟的个人博客，记录 AI 工具与订阅、Android 应用折腾、建站与运维实践，以及技术之外的生活思考。</subtitle>
-  <link rel="alternate" href="https://blog.wcg.qzz.io/" />
-  <link rel="self" href="https://blog.wcg.qzz.io/atom.xml" />
-  <id>https://blog.wcg.qzz.io/</id>
+  <link rel="alternate" href="https://blog.320360.xyz/" />
+  <link rel="self" href="https://blog.320360.xyz/atom.xml" />
+  <id>https://blog.320360.xyz/</id>
   <updated>2026-11-22T07:01:26.524Z</updated>
   <author><name>静海潜蛟</name></author>
   <generator uri="https://hexo.io/">Hexo</generator>
   <entry>
     <title>取消JIO优惠订阅的Gemini Pro</title>
-    <link rel="alternate" href="https://blog.wcg.qzz.io/2026/11/22/e608eb91d2b0/" />
-    <id>https://blog.wcg.qzz.io/2026/11/22/e608eb91d2b0/</id>
+    <link rel="alternate" href="https://blog.320360.xyz/2026/11/22/e608eb91d2b0/" />
+    <id>https://blog.320360.xyz/2026/11/22/e608eb91d2b0/</id>
     <published>2026-11-22T07:01:26.524Z</published>
     <updated>2026-11-22T07:01:26.524Z</updated>
     <author><name>静海潜蛟</name></author>
@@ -39,8 +39,8 @@
   </entry>
   <entry>
     <title>多看阅读8.4.26可同步、去广告、去书城、免更新</title>
-    <link rel="alternate" href="https://blog.wcg.qzz.io/2026/11/17/d577b54c95d9/" />
-    <id>https://blog.wcg.qzz.io/2026/11/17/d577b54c95d9/</id>
+    <link rel="alternate" href="https://blog.320360.xyz/2026/11/17/d577b54c95d9/" />
+    <id>https://blog.320360.xyz/2026/11/17/d577b54c95d9/</id>
     <published>2026-11-17T08:34:42.000Z</published>
     <updated>2026-11-19T07:40:26.645Z</updated>
     <author><name>静海潜蛟</name></author>
@@ -72,8 +72,8 @@
   </entry>
   <entry>
     <title>使用Magpie接管AI订阅</title>
-    <link rel="alternate" href="https://blog.wcg.qzz.io/2026/11/17/1e2bb610fbfc/" />
-    <id>https://blog.wcg.qzz.io/2026/11/17/1e2bb610fbfc/</id>
+    <link rel="alternate" href="https://blog.320360.xyz/2026/11/17/1e2bb610fbfc/" />
+    <id>https://blog.320360.xyz/2026/11/17/1e2bb610fbfc/</id>
     <published>2026-11-17T07:47:49.000Z</published>
     <updated>2026-11-17T12:57:35.184Z</updated>
     <author><name>静海潜蛟</name></author>
@@ -108,8 +108,8 @@
   </entry>
   <entry>
     <title>免费领GPT-6大模型额度</title>
-    <link rel="alternate" href="https://blog.wcg.qzz.io/2026/11/17/e1cdb6f779ed/" />
-    <id>https://blog.wcg.qzz.io/2026/11/17/e1cdb6f779ed/</id>
+    <link rel="alternate" href="https://blog.320360.xyz/2026/11/17/e1cdb6f779ed/" />
+    <id>https://blog.320360.xyz/2026/11/17/e1cdb6f779ed/</id>
     <published>2026-11-17T07:47:15.000Z</published>
     <updated>2026-11-21T16:08:41.573Z</updated>
     <author><name>静海潜蛟</name></author>
